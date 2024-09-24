@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Web Design Mastery | FitPhysique</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
+
+        :root {
+            --primary-color: #dc030a;
+            --primary-color-dark: rgb(135, 6, 12);
+            --text-dark: #0a0a0a;
+            --text-light: #737373;
+            --extra-light: #e5e5e5;
+            --white: #ffffff;
+            --max-width: 1200px;
+            --header-font: "Oswald", sans-serif;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+           
+        }
+
+        .section__container {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 5rem 1rem;
+        }
+
+        .section__header {
+            font-size: 2rem;
+            font-weight: 600;
+            font-family: var(--header-font);
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .section__description {
+            color: var(--text-light);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            outline: none;
+            border: none;
+            color: var(--white);
+            border-radius: 2px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn__primary {
+            background-color: var(--primary-color);
+        }
+
+        .btn__primary:hover {
+            background-color: var(--primary-color-dark);
+        }
+
+        .btn__secondary {
+            background-color: transparent;
+            border: 1px solid var(--white);
+        }
+
+        .btn__secondary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        img {
+            display: flex;
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        html,
+        body {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav {
+            background-color: var(--text-dark);
+            position: fixed;
+            width: 100%;
+            z-index: 9;
+        }
+
+        .nav__bar {
+            width: 100%;
+            max-width: var(--max-width);
+            margin-inline: auto;
+        }
+
+        .nav__header {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--text-dark);
+        }
+
+        .nav__logo img {
+            max-width: 90px;
+        }
+
+        .nav__menu__btn {
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .nav__links {
+            position: absolute;
+            top: 68px;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2rem;
+            background-color: var(--text-dark);
+            transition: 0.5s;
+            z-index: -1;
+            transform: translateY(-100%);
+        }
+
+        .nav__links.open {
+            transform: translateY(0);
+        }
+
+        .nav__links a {
+            font-size: 1.1rem;
+            font-family: var(--header-font);
+            white-space: nowrap;
+            color: var(--white);
+            transition: 0.3s;
+        }
+
+        .nav__links a:hover {
+            color: var(--primary-color);
+        }
+
+        .header {
+            background-image: linear-gradient(to right,
+                    rgba(0, 0, 0, 0.2),
+                    rgba(0, 0, 0, 0.8)),
+                url("https://thumbs.dreamstime.com/z/closeup-portrait-muscular-man-workout-barbell-gym-brutal-bodybuilder-athletic-six-pack-perfect-abs-shoulders-55122231.jpg?ct=jpeg");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .header__container {
+            padding-block: 10rem;
+            display: grid;
+        }
+
+        .header__content h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            font-family: var(--header-font);
+            line-height: 5rem;
+            color: var(--primary-color);
+        }
+
+        .header__content h2 {
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            font-weight: 400;
+            font-family: var(--header-font);
+            line-height: 3rem;
+            color: var(--white);
+        }
+
+        .header__content p {
+            margin-bottom: 2rem;
+            color: var(--extra-light);
+        }
+
+        .about__header {
+            text-align: center;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .about__header .section__header {
+            font-size: 3rem;
+        }
+
+        .about__header .section__description {
+            max-width: 350px;
+            margin-inline: auto;
+        }
+
+        .about__grid {
+            margin-top: 4rem;
+            display: grid;
+            gap: 4rem;
+        }
+
+        .about__card h4 {
+            position: relative;
+            isolation: isolate;
+            margin-bottom: 1rem;
+            padding-top: 4rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: var(--header-font);
+            color: var(--text-dark);
+        }
+
+        .about__card h4::before {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            font-size: 6rem;
+            line-height: 6rem;
+            color: var(--text-dark);
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .about__card:nth-child(1) h4::before {
+            content: "01";
+        }
+
+        .about__card:nth-child(2) h4::before {
+            content: "02";
+        }
+
+        .about__card:nth-child(3) h4::before {
+            content: "03";
+        }
+
+        .about__card p {
+            color: var(--text-light);
+        }
+
+        .session {
+            display: grid;
+        }
+
+        .session__card {
+            padding: 5rem 2rem;
+            text-align: center;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .session__card:nth-child(1) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url("https://www.shutterstock.com/shutterstock/photos/2430585363/display_1500/stock-photo-happy-sportspeople-in-shape-are-doing-lunges-in-a-gym-2430585363.jpg");
+        }
+
+        .session__card:nth-child(2) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url("https://www.shutterstock.com/shutterstock/photos/2493409527/display_1500/stock-photo-beautiful-sweaty-and-happy-smiling-young-fashionable-female-model-in-cool-gym-fitness-clothes-2493409527.jpg");
+        }
+
+        .session__card:nth-child(3) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url("https://www.shutterstock.com/shutterstock/photos/2415813593/display_1500/stock-photo-young-asian-man-running-on-treadmill-fitness-gym-exercise-2415813593.jpg");
+        }
+
+        .session__card:nth-child(4) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url("https://www.shutterstock.com/shutterstock/photos/2139736545/display_1500/stock-photo-muscular-arab-male-athlete-wearing-wireless-headphones-running-on-treadmill-at-gym-sporty-2139736545.jpg");
+        }
+
+        .session__card h4 {
+            position: relative;
+            isolation: isolate;
+            max-width: fit-content;
+            margin-inline: auto;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            font-weight: 500;
+            font-family: var(--header-font);
+            color: var(--white);
+        }
+
+        .session__card h4::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: -5px;
+            height: 25px;
+            aspect-ratio: 1;
+            background-color: var(--primary-color);
+            z-index: -1;
+        }
+
+        .session__card p {
+            max-width: 350px;
+            margin-inline: auto;
+            margin-bottom: 2rem;
+            color: var(--extra-light);
+        }
+
+        .trainer__grid {
+            margin-top: 4rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .trainer__card img {
+            margin-bottom: 1rem;
+        }
+
+        .trainer__card h4 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            font-family: var(--header-font);
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .trainer__card p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .trainer__socials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .trainer__socials a {
+            font-size: 1.25rem;
+            color: var(--text-light);
+        }
+
+        .trainer__socials a:hover {
+            color: var(--primary-color);
+        }
+
+        .membership {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url("https://i0.wp.com/www.componentfitness.co.in/blogs/wp-content/uploads/2024/04/gym-in-JanakPuri.webp?w=1078&ssl=1");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .membership__container .section__header {
+            color: var(--white);
+        }
+
+        .membership__grid {
+            margin-top: 4rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .membership__card {
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: 0.3s;
+        }
+
+        .membership__card:hover {
+            background-color: var(--primary-color);
+        }
+
+        .membership__card h4 {
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+            font-weight: 500;
+            font-family: var(--header-font);
+            color: var(--white);
+        }
+
+        .membership__card ul {
+            margin-bottom: 1rem;
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .membership__card li {
+            display: flex;
+            gap: 10px;
+            color: var(--white);
+        }
+
+        .membership__card li span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: 0.3s;
+        }
+
+        .membership__card:hover li span {
+            color: var(--white);
+        }
+
+        .membership__card h3 {
+            margin-bottom: 1rem;
+            font-size: 3rem;
+            font-weight: 400;
+            font-family: var(--header-font);
+            color: var(--white);
+        }
+
+        .membership__card h3 :is(sup, span) {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .membership__card:hover .btn {
+            background-color: var(--text-dark);
+        }
+
+        .swiper {
+            margin-top: 2rem;
+            padding-bottom: 3rem;
+            width: 100%;
+        }
+
+        .client__card {
+            max-width: 600px;
+            margin-inline: auto;
+            text-align: center;
+        }
+
+        .client__card img {
+            max-width: 100px;
+            margin-inline: auto;
+            margin-bottom: 1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 100%;
+        }
+
+        .client__card>div {
+            font-size: 2rem;
+            line-height: 2rem;
+            color: var(--text-light);
+            opacity: 0.5;
+        }
+
+        .client__card p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .client__card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .swiper-pagination-bullet {
+            height: 12px;
+            width: 12px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--primary-color);
+        }
+
+        .blog {
+            background-color: var(--text-dark);
+        }
+
+        .blog__container .section__header {
+            color: var(--white);
+        }
+
+        .blog__grid {
+            margin-top: 4rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .blog__card img {
+            margin-bottom: 10px;
+        }
+
+        .blog__card h4 {
+            max-width: calc(100% - 1rem);
+            font-size: 1.2rem;
+            font-weight: 400;
+            font-family: var(--header-font);
+            color: var(--white);
+            transition: 0.3s;
+        }
+
+        .blog__card:hover h4 {
+            color: var(--primary-color);
+        }
+
+        .blog__btn {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .logo__banner {
+            padding-block: 4rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .logo__banner img {
+            max-width: 150px;
+            margin-inline: auto;
+        }
+
+        .footer {
+            background-color: var(--text-dark);
+        }
+
+        .footer__container {
+            display: grid;
+            gap: 4rem 2rem;
+        }
+
+        .footer__logo img {
+            margin-bottom: 1rem;
+            max-width: 120px;
+        }
+
+        .footer__col p {
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .footer__links {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .footer__links a {
+            color: var(--text-light);
+        }
+
+        .footer__links a:hover {
+            color: var(--white);
+        }
+
+        .footer__links a span {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .footer__col h4 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            font-family: var(--header-font);
+            color: var(--white);
+        }
+
+        .gallery__grid {
+            max-width: 275px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .footer__col form {
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--white);
+            border-radius: 2px;
+        }
+
+        .footer__col input {
+            width: 100%;
+            padding-inline: 1rem;
+            outline: none;
+            border: none;
+            color: var(--text-dark);
+        }
+
+        .footer__socials {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer__socials a {
+            padding: 5px 10px;
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            background-color: var(--white);
+            border-radius: 100%;
+        }
+
+        .footer__socials a:hover {
+            color: var(--white);
+            background-color: var(--primary-color);
+        }
+
+        .footer__bar {
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        @media (width > 540px) {
+            .about__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .session__card {
+                padding: 7rem 2rem;
+            }
+
+            .trainer__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .membership__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .blog__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer__container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (width > 768px) {
+            nav {
+                position: static;
+                padding: 1.5rem 1rem;
+            }
+
+            .nav__bar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 2rem;
+            }
+
+            .nav__header {
+                padding: 0;
+                background-color: transparent;
+            }
+
+            .nav__logo img {
+                max-width: 120px;
+            }
+
+            .nav__menu__btn {
+                display: none;
+            }
+
+            .nav__links {
+                position: static;
+                padding: 0;
+                flex-direction: row;
+                justify-content: flex-end;
+                background-color: transparent;
+                transform: none;
+                z-index: 1;
+            }
+
+            .header__container {
+                padding-block: 12rem;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header__content {
+                grid-column: 2/3;
+            }
+
+            .about__header {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+                align-items: center;
+            }
+
+            .about__header .section__header {
+                text-align: right;
+            }
+
+            .about__header .section__description {
+                text-align: left;
+                margin-inline-start: unset;
+            }
+
+            .about__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .session {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .session__card {
+                padding: 10rem 2rem;
+            }
+
+            .trainer__grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .membership__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .blog__grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .logo__banner {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .footer__container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (width > 1024px) {
+            .trainer__grid {
+                gap: 2rem;
+            }
+
+            .membership__grid {
+                gap: 2rem;
+            }
+
+            .membership__card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav__bar">
+            <div class="nav__header">
+                <div class="nav__logo">
+                    <a href="#"><img
+                            src="data:image/png;base64,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"
+                            alt="logo" /  width="80px" height="40px"></a>
+                </div>
+                <div class="nav__menu__btn" id="menu-btn">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#trainer">TRAINER</a></li>
+                <li><a href="#client">CLIENT</a></li>
+                <li><a href="#blog">BLOG</a></li>
+                <li><a href="#contact">CONTACT US</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="header" id="header">
+        <div class="section__container header__container">
+            <div class="header__content">
+                <h1>HARD WORK</h1>
+                <h2>ISS FOR EVERY SUCCESS</h2>
+                <p>Start by taking inspirations, continue it to give inspirations</p>
+                <div class="header__btn">
+                    <button class="btn btn__primary">GET STARTED</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section__container about__container" id="about">
+        <div class="about__header">
+            <h2 class="section__header">ABOUT US</h2>
+            <p class="section__description">
+                Our mission is to inspire and support individuals in achieving their
+                health and wellness goals, regardless of their fitness level or
+                background.
+            </p>
+        </div>
+        <div class="about__grid">
+            <div class="about__card">
+                <h4>WINNER COACHES</h4>
+                <p>
+                    We pride ourselves on having a team of dedicated and experienced
+                    coaches who are committed to helping you succeed.
+                </p>
+            </div>
+            <div class="about__card">
+                <h4>AFFORDABLE PRICE</h4>
+                <p>
+                    We believe that everyone should have access to high-quality fitness
+                    facilities without breaking the bank.
+                </p>
+            </div>
+            <div class="about__card">
+                <h4>MODERN EQUIPMENTS</h4>
+                <p>
+                    Stay ahead of the curve with our state-of-the-art equipment designed
+                    to elevate your workout experience.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="session">
+        <div class="session__card">
+            <h4>BODY BUILDING</h4>
+            <p>
+                Sculpt your physique and build muscle mass with our specialized
+                bodybuilding programs at FitPhysique.
+            </p>
+            <button class="btn btn__secondary">
+                READ MORE <i class="ri-arrow-right-line"></i>
+            </button>
+        </div>
+        <div class="session__card">
+            <h4>CARDIO</h4>
+            <p>
+                Elevate your heart rate and boost your endurance with our dynamic
+                cardio workouts at FitPhysique.
+            </p>
+            <button class="btn btn__secondary">
+                READ MORE <i class="ri-arrow-right-line"></i>
+            </button>
+        </div>
+        <div class="session__card">
+            <h4>FITNESS</h4>
+            <p>
+                Embrace a holistic approach to fitness with our comprehensive fitness
+                programs at FitPhysique.
+            </p>
+            <button class="btn btn__secondary">
+                READ MORE <i class="ri-arrow-right-line"></i>
+            </button>
+        </div>
+        <div class="session__card">
+            <h4>CROSSFIT</h4>
+            <p>
+                Experience the ultimate full-body workout with our intense CrossFit
+                classes at FitPhysique.
+            </p>
+            <button class="btn btn__secondary">
+                READ MORE <i class="ri-arrow-right-line"></i>
+            </button>
+        </div>
+    </section>
+
+    <section class="section__container trainer__container" id="trainer">
+        <h2 class="section__header">MEET OUR TRAINERS</h2>
+        <div class="trainer__grid">
+            <div class="trainer__card">
+                <img src="https://www.fitnessmatters.org/wp-content/uploads/2022/05/IMG-20fff210307-WA0012.jpg"
+                    alt="trainer" />
+                <h4>DAVID WILLIAMS</h4>
+                <p>Body Builder Coach</p>
+                <div class="trainer__socials">
+                    <a href="https://www.facebook.com/profile.php?id=100090906393776"><i
+                            class="ri-facebook-fill"></i></a>
+                    <a href="https://x.com/Pra32731Ranjeet"><i class="ri-twitter-fill"></i></a>
+
+                </div>
+            </div>
+            <div class="trainer__card">
+                <img src="https://theapexperf.com/wp-content/uploads/2024/07/Personal-Workout-Trainer-2048x1152.jpg"
+                    alt="trainer" />
+                <h4>ROSY RIVERA</h4>
+                <p>Cardio Coach</p>
+                <div class="trainer__socials">
+                    <a href="https://www.facebook.com/profile.php?id=100090906393776"><i
+                            class="ri-facebook-fill"></i></a>
+                    <a href="https://x.com/Pra32731Ranjeet"><i class="ri-twitter-fill"></i></a>
+
+                </div>
+            </div>
+            <div class="trainer__card">
+                <img src="https://img.freepik.com/premium-photo/female-personal-trainer-helping-woman-doing-exercises-gym_146671-31558.jpg?w=826"
+                    alt="trainer" />
+                <h4>MATT STONIE</h4>
+                <p>Fitness Coach</p>
+                <div class="trainer__socials">
+                    <a href="https://www.facebook.com/profile.php?id=100090906393776"><i
+                            class="ri-facebook-fill"></i></a>
+                    <a href="https://x.com/Pra32731Ranjeet"><i class="ri-twitter-fill"></i></a>
+
+                </div>
+            </div>
+            <div class="trainer__card">
+                <img src="https://healthlineudaipur.com/wp-content/uploads/2019/03/Personal-Training-Studio.jpg"
+                    alt="trainer" />
+                <h4>SOFIA LAUREN</h4>
+                <p>Crossfit Coach</p>
+                <div class="trainer__socials">
+                    <a href="https://www.facebook.com/profile.php?id=100090906393776"><i
+                            class="ri-facebook-fill"></i></a>
+                    <a href="https://x.com/Pra32731Ranjeet"><i class="ri-twitter-fill"></i></a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="membership">
+        <div class="section__container membership__container">
+            <h2 class="section__header">MEMBERSHIP</h2>
+            <div class="membership__grid">
+                <div class="membership__card">
+                    <h4>STANDARD</h4>
+                    <ul>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Gym floor access and standard equipment.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Group fitness classes: yoga, Zumba, Pilates.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Complimentary fitness consultations.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Locker room and showers.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Nutritional guidance and snacks.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Member discounts on merchandise.
+                        </li>
+                    </ul>
+                    <h3><sup>$</sup>30<span>/month</span></h3>
+                    <button class="btn btn__primary">BUY NOW</button>
+                </div>
+                <div class="membership__card">
+                    <h4>PROFESSIONAL</h4>
+                    <ul>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Standard Membership facilities included.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Priority booking for personal training.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Access to advanced equipment.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Complimentary fitness consultations.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Exclusive member events and workshops.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Discounts on additional services.
+                        </li>
+                    </ul>
+                    <h3><sup>$</sup>45<span>/month</span></h3>
+                    <button class="btn btn__primary">BUY NOW</button>
+                </div>
+                <div class="membership__card">
+                    <h4>ULTIMATE</h4>
+                    <ul>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Standard and Professional facilities included.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Unlimited access to premium amenities.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Reserved parking or valet service.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Complimentary premium fitness classes.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Customized workout plans.
+                        </li>
+                        <li>
+                            <span><i class="ri-check-line"></i></span>
+                            Priority access to guest passes and events.
+                        </li>
+                    </ul>
+                    <h3><sup>$</sup>60<span>/month</span></h3>
+                    <button class="btn btn__primary">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section__container client__container" id="client">
+        <h2 class="section__header">OUR TESTIMONIALS</h2>
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="client__card">
+                        <img src="https://www.shutterstock.com/shutterstock/photos/2474572541/display_1500/stock-photo-portrait-smiling-gym-client-taking-break-from-exercising-2474572541.jpg"
+                            alt="client" />
+                        <div><i class="ri-double-quotes-r"></i></div>
+                        <p>
+                            I've been a member at FitPhysique for over a year now, and I
+                            couldn't be happier with my experience. The range of classes
+                            offered here is impressive - from high-energy cardio sessions to
+                            relaxing yoga classes, there's something for everyone.
+                        </p>
+                        <h4>Sarah Johnson</h4>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="client__card">
+                        <img src="https://www.shutterstock.com/shutterstock/photos/1788685241/display_1500/stock-photo-cheerful-caucasian-male-receptionists-talking-with-slim-client-giving-e-key-for-access-to-locker-1788685241.jpg"
+                            alt="client" />
+                        <div><i class="ri-double-quotes-r"></i></div>
+                        <p>
+                            The classes are always well-planned and engaging, and the
+                            instructors do an excellent job of keeping us motivated
+                            throughout. I'm so grateful to have found such a supportive and
+                            inclusive gym.
+                        </p>
+                        <h4>Michael Wong</h4>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="client__card">
+                        <img src="https://www.shutterstock.com/shutterstock/photos/1012021384/display_1500/stock-photo-portrait-of-young-woman-signing-contract-with-personal-fitness-coach-in-modern-gym-copy-space-1012021384.jpg"
+                            alt="client" />
+                        <div><i class="ri-double-quotes-r"></i></div>
+                        <p>
+                            I've tried many gyms in the past, but none of them compare to
+                            FitPhysique. From the moment I walked through the doors, I felt
+                            welcomed and supported by the staff and fellow members alike.
+                        </p>
+                        <h4>Emily Davis</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section class="blog" id="blog">
+        <div class="section__container blog__container">
+            <h2 class="section__header">BLOGS</h2>
+            <div class="blog__grid">
+                <div class="blog__card">
+                    <img src="https://www.anytimefitness.co.in/wp-content/uploads/2023/02/Gym-Regimen.jpg" alt="blog" />
+                    <h4>Fueling Your Body for Optimal Performance</h4>
+                </div>
+                <div class="blog__card">
+                    <img src="https://i0.wp.com/goldsgym.in/wp-content/uploads/2023/12/compress-strong-man-training-gym-min-scaled.jpg?resize=2048%2C1366&ssl=1"
+                        alt="blog" />
+                    <h4>A Guide to Setting and Achieving Fitness Goals</h4>
+                </div>
+                <div class="blog__card">
+                    <img src="https://images.healthshots.com/healthshots/en/uploads/2023/06/10230401/gym-770x436.jpg"
+                        alt="blog" />
+                    <h4>Tips and Techniques for Efficient Exercise</h4>
+                </div>
+                <div class="blog__card">
+                    <img src="https://uddingstonphysiotherapy.co.uk/wp-content/uploads/bb-plugin/cache/uddingstron-physiotherapy-gym-img-9-portrait-1e856601c1a25da61670f43d981990f1-3j0rgliwn8uf.jpg"
+                        alt="blog" />
+                    <h4>A Beginner's Guide to Starting Your Running Journey</h4>
+                </div>
+            </div>
+            <div class="blog__btn">
+                <button class="btn btn__primary">VIEW ALL</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section__container logo__banner">
+        <img src="https://designguruji.in/wp-content/uploads/2020/04/OLYMPIA-GYM-copy-1024x683.jpg" alt="banner" />
+        <img src="https://designguruji.in/wp-content/uploads/2020/04/HIT-FIT-GYM-1-1536x1351.jpg" alt="banner" />
+        <img src="https://designguruji.in/wp-content/uploads/2020/04/lucky-gym-copy-2-1536x614.jpg" alt="banner" />
+        <img src="https://designguruji.in/wp-content/uploads/2020/04/TEMPLE-GYM-copy-1536x461.jpg" alt="banner" />
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <div class="footer__logo">
+                    <a href="#"><img
+                            src="https://media.istockphoto.com/id/1499989647/vector/barbell-fitness.jpg?s=1024x1024&w=is&k=20&c=yDr8AssioufFPOzTs2x1VUO2fTQbBocP7XG_9G3UrwU="
+                            alt="logo" /></a>
+                </div>
+                <p>
+                    Welcome to FitPhysique, where we believe that every journey to
+                    fitness is unique and empowering.
+                </p>
+                <ul class="footer__links">
+                    <li>
+                        <a href="#">
+                            <span><i class="ri-map-pin-2-fill"></i></span>
+                            123 Main Daman Road<br />My Fitness Gym &Dark Gym City
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><i class="ri-phone-fill"></i></span>
+                            +91940392XXXX
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><i class="ri-mail-fill"></i></span>
+                            fitnessgym2908@gmail.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>GALLERY</h4>
+                <div class="gallery__grid">
+                    <img src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        alt="gallery" />
+                    <img src="https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        alt="gallery" />
+                    <img src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        alt="gallery" />
+                    <img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        alt="gallery" />
+                    <img src="https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        alt="gallery" />
+                    <img src="https://images.pexels.com/photos/2247179/pexels-photo-2247179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        alt="gallery" />
+                    <img src="https://images.pexels.com/photos/5327452/pexels-photo-5327452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        alt="gallery" />
+                    <img src="https://images.pexels.com/photos/5327469/pexels-photo-5327469.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        alt="gallery" />
+                    <img src="https://images.pexels.com/photos/5327558/pexels-photo-5327558.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        alt="gallery" />
+                </div>
+            </div>
+            <div class="footer__col">
+                <h4>NEWSLETTER</h4>
+                <p>
+                    Don't miss out on the latest news and offers - sign up today and
+                    join our thriving fitness community!
+                </p>
+                <form action="/">
+                <form action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="ebf6ed90-7546-4827-8dd0-92bc9424094b">
+                    <input type="text" placeholder="Enter Email" />
+                    <button class="btn btn__primary">SEND</button>
+                </form>
+                <div class="footer__socials">
+                    <a href="https://www.facebook.com/profile.php?id=100090906393776"><i
+                            class="ri-facebook-fill"></i></a>
+                    <a href="https://x.com/Pra32731Ranjeet"><i class="ri-twitter-fill"></i></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer__bar">
+            Created. By @ Ranjeet Kumar......
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+
+        const menuBtn = document.getElementById("menu-btn");
+        const navLinks = document.getElementById("nav-links");
+        const menuBtnIcon = menuBtn.querySelector("i");
+
+        menuBtn.addEventListener("click", (e) => {
+            navLinks.classList.toggle("open");
+
+            const isOpen = navLinks.classList.contains("open");
+            menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+        });
+
+        navLinks.addEventListener("click", (e) => {
+            navLinks.classList.remove("open");
+            menuBtnIcon.setAttribute("class", "ri-menu-line");
+        });
+
+        const scrollRevealOption = {
+            distance: "50px",
+            origin: "bottom",
+            duration: 1000,
+        };
+
+        ScrollReveal().reveal(".header__content h1", {
+            ...scrollRevealOption,
+        });
+        ScrollReveal().reveal(".header__content h2", {
+            ...scrollRevealOption,
+            delay: 500,
+        });
+        ScrollReveal().reveal(".header__content p", {
+            ...scrollRevealOption,
+            delay: 1000,
+        });
+        ScrollReveal().reveal(".header__content .header__btn", {
+            ...scrollRevealOption,
+            delay: 1500,
+        });
+
+        ScrollReveal().reveal(".about__card", {
+            duration: 1000,
+            interval: 500,
+        });
+
+        ScrollReveal().reveal(".trainer__card", {
+            ...scrollRevealOption,
+            interval: 500,
+        });
+
+        ScrollReveal().reveal(".blog__card", {
+            ...scrollRevealOption,
+            interval: 500,
+        });
+
+        const swiper = new Swiper(".swiper", {
+            loop: true,
+
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
+
+    </script>
+</body>
+
+</html>
